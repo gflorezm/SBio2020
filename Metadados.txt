@@ -1,0 +1,50 @@
+METADADOS
+
+
+Autor: Guillermo Flórez Montero
+Ano: 2020
+
+
+1. 
+
+Nome do arquivo: a_lituratus.csv
+Separador: virgula ","
+Decimal: ponto ","
+
+Descrição da data: Dados ficticios de uma amostra de 196 morcegos da espécie Artibeus lituratus, coletados ao longo de um ano
+          	   em uma gradiente de urbanização. A cada animal se tomaron medidas do comprimento do antebraço, masa corporal,
+	   	   estágio do desenvolvimento, sexo e coletou-se uma amostra de fezes para análise da dieta.
+	 	   Todos os animais produziram amostras de fezes.
+
+Variáveis
+
+Habitat: Variável categórica. Tipo de hábitat onde o animal foi coletado. Floresta, área de transição ou periurbana e dentro da cidade
+         ou área urbana. Categorías: Forest, Periurban, Urban.
+
+Forearm: Variável contínua. Comprimento do antebraço (mm) medido com um Paquímetro de campo. Valores: 42.9 - 72.9
+
+Body_mass: Variável contínua. Masa corporal (g) medida com uma Balança de campo. Valores: 78 - 172
+
+Diet_richness: Variável discreta. Riqueza da dieta medida como o número de morfótipos de sementes encontrados na amostra de fezes.
+	       Valores: 0 - 10
+
+Sex: Variável categórica. Sexo do animal. Valores: Male, Female.
+
+
+
+2.
+
+Nome do arquivo: cavalos.csv
+Separador: virgula ","
+Decimal: ponto ","
+
+Descrição da data: Dados ficticios da masa corporal de um grupo de 29 cavalos adultos que receberam tratamento com um antibiótico por 15 dias.
+		   Com o objetivo de saber se o antibiótico afetaba a masa corporal, a mesma foi medida antes e depois do tratamento.
+
+Variáveis
+
+Codigo: Identificação de cada animal. Formado por duas letras e dois números.
+
+Masa_inicial: Masa corporal (kg) de cada animal antes de iniciar o tratamento com antibióticos.
+
+Masa_final: Masa corporal (kg) de cada animal depois dos 15 dias de tratamento com antibióticos. 

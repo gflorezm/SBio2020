@@ -1,5 +1,5 @@
 # SBio2020
-Repositório de códigos e dados utilizados no minicurso "Introdução à Análise de dados em R" no Marco da IX semana da Biologia da UFABC.
+Repositório de códigos e dados utilizados no minicurso "Introdução à Análise de dados em R" no marco da IX semana da Biologia da UFABC.
 
 Como citar: Florez-Montero, G. (2020). Introdução à Análise de dados em R". Laboratório de Ecologia Quantitativa e Espacial - Universidade Federal do ABC.
 

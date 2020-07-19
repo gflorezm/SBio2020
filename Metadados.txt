@@ -14,7 +14,8 @@ Decimal: ponto ","
 Descrição da data: Dados fictícios de uma amostra de 196 morcegos da espécie Artibeus lituratus, coletados ao longo de um ano
           	   em uma gradiente de urbanização. A cada animal se fez medição do comprimento do antebraço, masa corporal,
 	   	   estágio do desenvolvimento, sexo e coletou-se uma amostra de fezes para análise da dieta.
-	 	   Todos os animais produziram amostras de fezes.
+	 	   Todos os animais produziram amostras de fezes, possíveis NAs na coluna Diet_richness devem assumir valor Zero
+		   pois foram amostras que não apresentaram sementes.
 
 Variáveis
 

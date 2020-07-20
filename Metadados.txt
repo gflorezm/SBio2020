@@ -9,7 +9,7 @@ Ano: 2020
 
 Nome do arquivo: a_lituratus.csv
 Separador: virgula ","
-Decimal: ponto ","
+Decimal: ponto "."
 
 Descrição da data: Dados fictícios de uma amostra de 196 morcegos da espécie Artibeus lituratus, coletados ao longo de um ano
           	   em uma gradiente de urbanização. A cada animal se fez medição do comprimento do antebraço, masa corporal,
@@ -37,7 +37,7 @@ Sex: Variável categórica. Sexo do animal. Valores: Male, Female.
 
 Nome do arquivo: cavalos.csv
 Separador: virgula ","
-Decimal: ponto ","
+Decimal: ponto "."
 
 Descrição da data: Dados fictícios da masa corporal de um grupo de 29 cavalos adultos que receberam tratamento com um antibiótico por 15 dias.
 		   Com o objetivo de saber se o antibiótico afetaba a masa corporal, a mesma foi medida antes e depois do tratamento.

@@ -146,7 +146,7 @@ summary(midata)
 # PRONTO GENTEEEE
 # Consertamos a tabela de dados, vamos salvá-la como CSV
 
-write.csv(midata, "alituratus2.csv")
+write.csv(midata, "alituratus2.csv", row.names = FALSE)
 
 
 

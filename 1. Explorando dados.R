@@ -1,14 +1,14 @@
 #################################################
 ##                                             ##
 ##  1. EXPLORANDO E CORREGINDO UMA DATA FRAME  ##
-##  Guillermo L. FlÛrez Montero                ##
+##  Guillermo L. Fl√≥rez Montero                ##
 ##                                             ##
 #################################################
 
 
 
 
-# Primeiro carregamos o diretÛrio de trabalho
+# Primeiro carregamos o diret√≥rio de trabalho
 # lembre de substituir o caminho da minha pasta
 
 setwd("D:/Cursos/Semana da Bio 2020/datos")
@@ -16,14 +16,14 @@ setwd("D:/Cursos/Semana da Bio 2020/datos")
 
 
 # Vamos explorar um pouco os dados "a_lituratus.csv"
-# est„o no Github, n„o esqueÁam de ler os metadados
+# est√£o no Github, n√£o esque√ßam de ler os metadados
 
 
 
 
-# Usaremos esses pacotes para baix·-los diretamente do github
+# Usaremos esses pacotes para baix√°-los diretamente do github
 
-# caso n„o estejam descarregados use as linhas 28 e 29, tirando o jogo-da-velha
+# caso n√£o estejam descarregados use as linhas 28 e 29, tirando o jogo-da-velha
 
 # install.packages("readr")
 # install.packages("curl")
@@ -43,34 +43,34 @@ midata = read_csv("https://raw.githubusercontent.com/gflorezm/SBio2020/master/a_
 View(midata)
 
 
-# podemos explorar as primeiras seis e ˙ltimas seis linhas na consola
+# podemos explorar as primeiras seis e √∫ltimas seis linhas na consola
 
 head(midata)
 tail(midata)
 
 
 
-# podemos ver um resumo tambÈm
+# podemos ver um resumo tamb√©m
 
 str(midata)
 summary(midata)
 
 
 # muitas vezes as tabelas de dados podem ter erros que devem ser corregidos
-# antes de iniciar uma an·lise.
+# antes de iniciar uma an√°lise.
 
-# Vamos conferir valores faltantes (NA) na planilha (j· o summary disse que h· 17)
-# para isso usamos um teste lÛgico
+# Vamos conferir valores faltantes (NA) na planilha (j√° o summary disse que h√° 17)
+# para isso usamos um teste l√≥gico
 
 is.na(midata)
 
 # Eu perguintei. R... meus dados tem NA?
-# o R respondeu com uma data frame igualzinha mas preenchida com valores lÛgicos
-# TRUE quando È um NA e FALSE quando n„o È.
+# o R respondeu com uma data frame igualzinha mas preenchida com valores l√≥gicos
+# TRUE quando √© um NA e FALSE quando n√£o √©.
 
 
 
-# Vou pedir ao R somar os NA que est„o em cada uma das colunas do data frame
+# Vou pedir ao R somar os NA que est√£o em cada uma das colunas do data frame
 
 sum(is.na(midata$Habitat))
 sum(is.na(midata$Forearm))
@@ -79,8 +79,8 @@ sum(is.na(midata$Diet_richness))
 sum(is.na(midata$Sex))
 
 
-# Percebam que os NA sÛ est„o na coluna Diet_richness
-# podemos identificar exatamente quais dados s„o
+# Percebam que os NA s√≥ est√£o na coluna Diet_richness
+# podemos identificar exatamente quais dados s√£o
 
 
 midata[is.na(midata$Diet_richness),]
@@ -95,7 +95,7 @@ midata[is.na(midata$Diet_richness),]
 ################################################################
 
 # quando indexamos em  R, do lado do lado esquerdo da virgula
-# s„o as linhas e do lado direito as colunas [linhas,Colunas]
+# s√£o as linhas e do lado direito as colunas [linhas,Colunas]
 
 # vejam o valor da linha 2, coluna 3
 
@@ -110,27 +110,27 @@ midata[16,]
 
 
 
-# Identificar NAs È importante pois muitas funÁıes n„o lidam bem com eles
-# por outro lado sabemos (ver os metadados) que n„o deveria ter NAs
-# e caso existir devem asumir valor de 0, faÁamos isso... dar valor 0 para eles
+# Identificar NAs √© importante pois muitas fun√ß√µes n√£o lidam bem com eles
+# por outro lado sabemos (ver os metadados) que n√£o deveria ter NAs
+# e caso existir devem asumir valor de 0, fa√ßamos isso... dar valor 0 para eles
 
 
 midata$Diet_richness[is.na(midata$Diet_richness)] = 0
 
-# pronto, conferimos que n„o tem mais NA
+# pronto, conferimos que n√£o tem mais NA
 
 midata[is.na(midata$Diet_richness),]
 
 
 
 
-# Agora vamos conferir que todo esteja bem com as vari·veis qualitativas
+# Agora vamos conferir que todo esteja bem com as vari√°veis qualitativas
 
 table(midata$Habitat)
 table(midata$Sex)
 
-# Percebam que no sexo h· um erro de digitaÁ„o que faz com que se crie uma
-# uma nova categorÌa, aparecem: Female, Male e male. Vamos arrumar o erro de digitaÁ„o
+# Percebam que no sexo h√° um erro de digita√ß√£o que faz com que se crie uma
+# uma nova categor√≠a, aparecem: Female, Male e male. Vamos arrumar o erro de digita√ß√£o
 
 midata$Sex[midata$Sex == "male"] = "Male"
 midata$Sex = factor(midata$Sex, levels = c("Male", "Female")) #convertir de novo em fator
@@ -144,9 +144,9 @@ summary(midata)
 
 
 # PRONTO GENTEEEE
-# Consertamos a tabela de dados, vamos salv·-la como CSV
+# Consertamos a tabela de dados, vamos salv√°-la como CSV
 
-write_csv(midata, "alituratus2.csv")
+write.csv(midata, "alituratus2.csv")
 
 
 

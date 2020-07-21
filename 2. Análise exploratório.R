@@ -1,22 +1,22 @@
 #################################################
 ##                                             ##
-##  2. AN¡LISE EXPLORAT”RIA DE DADOS           ##
-##  Guillermo L. FlÛrez Montero                ##
+##  2. AN√ÅLISE EXPLORAT√ìRIA DE DADOS           ##
+##  Guillermo L. Fl√≥rez Montero                ##
 ##                                             ##
 #################################################
 
 
-# Antes de iniciar uma sugest„o:
+# Antes de iniciar uma sugest√£o:
 
-# N„o excecute um script inteiro
+# N√£o excecute um script inteiro
 # va linha por linha, lendo e tentando entender
 # o que quer dizer cada linha.
 
-# Caso n„o entenda uma linha, pergunte...
+# Caso n√£o entenda uma linha, pergunte...
 
 
 
-# Este tutorial trata sobre exploraÁ„o gr·fica de dados
+# Este tutorial trata sobre explora√ß√£o gr√°fica de dados
 # utilizando principalmente ferramentas do pacote base de R
 
 
@@ -24,7 +24,7 @@
 
 
 
-# Primeiro carregamos o diretÛrio de trabalho
+# Primeiro carregamos o diret√≥rio de trabalho
 # lembre de substituir o caminho da minha pasta
 
 setwd("D:/Cursos/Semana da Bio 2020/datos")
@@ -32,8 +32,8 @@ setwd("D:/Cursos/Semana da Bio 2020/datos")
 
 
 # Vamos explorar um pouco os dados "alituratus2.csv"
-# s„o derivados dos dados "a_lituratus.csv" porÈm foram corregidos
-# no tutorial anterior e salvos no diretÛrio de cada um
+# s√£o derivados dos dados "a_lituratus.csv" por√©m foram corregidos
+# no tutorial anterior e salvos no diret√≥rio de cada um
 
 
 
@@ -43,8 +43,8 @@ midata2 = read.csv("alituratus2.csv")
 View(midata2)
 
 
-# Podemos testar calcular mÈdia, mediana, desvio padr„o
-# de uma vari·vel
+# Podemos testar calcular m√©dia, mediana, desvio padr√£o
+# de uma vari√°vel
 
 mean(midata2$Forearm)
 median(midata2$Forearm)
@@ -57,7 +57,7 @@ quantile(midata2$Forearm, probs = 0.5) # a mediana
 quantile(midata2$Forearm, probs = 0.75)
 
 
-#Tentem aplicar essas funÁıes ao dataframe inteiro
+#Tentem aplicar essas fun√ß√µes ao dataframe inteiro
 
 
 
@@ -75,30 +75,30 @@ quantile(midata2$Forearm, probs = 0.75)
 
 
 
-# Para aplicar uma funÁ„o a uma data frame
-# utilizamos a funÁ„o sapply()
+# Para aplicar uma fun√ß√£o a uma data frame
+# utilizamos a fun√ß√£o sapply()
 
 sapply(midata2[,2:4], mean)
 sapply(midata2[,2:4], median)
 sapply(midata2[,2:4], sd)
 
 
-# Perceberam por quÍ estou indexando as colunas 2:4?
+# Perceberam por qu√™ estou indexando as colunas 2:4?
 
 
 
 
-# VAMOS BRINCAR COM GR¡FICOS
+# VAMOS BRINCAR COM GR√ÅFICOS
 
 plot(midata2$Forearm)
 boxplot(midata2$Forearm)
 stripchart(midata2$Forearm, method = "stack")
 
-# Coloca os trÍs juntos numa mesma janela
+# Coloca os tr√™s juntos numa mesma janela
 
-x11() # abre uma janela gr·fica
+x11() # abre uma janela gr√°fica
 
-# primeiro dividimos a ‡rea do gr·fico
+# primeiro dividimos a √†rea do gr√°fico
 # em uma matriz de 1 linha e 3 colunas
 
 par(mfrow = c(1,3))
@@ -107,36 +107,36 @@ plot(midata2$Forearm)
 boxplot(midata2$Forearm)
 stripchart(midata2$Forearm, method = "stack")
 
-par(mfrow = c(1,1)) # Devolvemos ‡ ·rea gr·fica normal
+par(mfrow = c(1,1)) # Devolvemos √† √°rea gr√°fica normal
 
 
 
 # vamos ver todas as possibilidades que tem
-# a funÁ„o par() dos gr·ficos
+# a fun√ß√£o par() dos gr√°ficos
 
 ?par
 
-# A maiorÌa desses par‚metros podem ser mudados
-# dentro da funÁ„o de graficaÁ„o.
+# A maior√≠a desses par√¢metros podem ser mudados
+# dentro da fun√ß√£o de grafica√ß√£o.
 
 
 # AGORA?
 
 # Vamos explorar duas variables ao mesmo tempo no boxplot
 
-# Cuando usamos duas vari·veis, È comum usar uma sintaxe tipo
-# vari·vel resposta ~ vari·vel preditora
+# Cuando usamos duas vari√°veis, √© comum usar uma sintaxe tipo
+# vari√°vel resposta ~ vari√°vel preditora
 
 boxplot(Forearm~Habitat, data = midata2)
 
 
-# mudar a cor do gr·fico?... pode
+# mudar a cor do gr√°fico?... pode
 
 boxplot(Forearm~Habitat, data = midata2,
         col = "red")
 
 
-# Colocar uma cor para cada tipo de h·bitat?... pode
+# Colocar uma cor para cada tipo de h√°bitat?... pode
 
 boxplot(Forearm~Habitat, data = midata2,
         col = c("red", "blue", "green"))
@@ -145,33 +145,33 @@ boxplot(Forearm~Habitat, data = midata2,
 
 boxplot(Forearm~Habitat, data = midata2,
         col = c("red", "blue", "green"),
-        ylab = "Comprimento do antebraÁo")
+        ylab = "Comprimento do antebra√ßo")
 
 
-# Veja todo o que o par() pode fazer por vocÍ
-
-
-
+# Veja todo o que o par() pode fazer por voc√™
 
 
 
-# Vamos fazer um gr·fico tipo xy plot 
-# da relaÁ„o entre a massa corporal e a riqueza da dieta
 
-# AquÌ vamos usar farias ferramentas de ediÁ„o par()
+
+
+# Vamos fazer um gr√°fico tipo xy plot 
+# da rela√ß√£o entre a massa corporal e a riqueza da dieta
+
+# Aqu√≠ vamos usar farias ferramentas de edi√ß√£o par()
 
 plot(diet_richness ~ body_mass, 
-     data = alit, pch = 16, 
+     data = midata2, pch = 16, 
      xlim = c(70,160), ylim = c(0,12), 
      xlab = "Massa corporal (g)", 
      ylab = "Longitud del antebrazo (mm)", 
      cex.lab = 1.2, font.lab = 2)
 
-# posso colorir os pontos de acordo ao tipo de h·bitat
+# posso colorir os pontos de acordo ao tipo de h√°bitat
 # mas para isso, preciso indexar,
-# sepaerar e sobrepor gr·ficos)
+# sepaerar e sobrepor gr√°ficos)
 
-plot(midata2$Diet_richness[midata2$Habitat == "Forest"] ~ 
+plot(midata2$diet_richness[midata2$Habitat == "Forest"] ~ 
        midata2$body_mass[midata2$Habitat == "Forest"],
      col = "green", pch = 16, cex = 1.2,
      xlim = c(70,160), ylim = c(0,12), 
@@ -191,9 +191,9 @@ plot(midata2$Diet_richness[midata2$Habitat == "Urban"] ~
 
 
 
-# Vamos praticar com os gr·ficos usados na aula
+# Vamos praticar com os gr√°ficos usados na aula
 
-# Ao longo dos tutoriais sempre ir· um espaÁo para fazer gr·ficos
+# Ao longo dos tutoriais sempre ir√° um espa√ßo para fazer gr√°ficos
 # explorando nossos dados ou resultados
 
 
@@ -205,12 +205,12 @@ plot(midata2$Diet_richness[midata2$Habitat == "Urban"] ~
 
 ########################################
 #
-#   GR¡FICOS USADOS NA AULA
+#   GR√ÅFICOS USADOS NA AULA
 #
 ########################################
 
 
-# NOTA: quando forem fazendo os gr·ficos
+# NOTA: quando forem fazendo os gr√°ficos
 # executem linha por linha e vejam o que va
 # acrescentando a linha seguinte
 
@@ -219,18 +219,18 @@ plot(midata2$Diet_richness[midata2$Habitat == "Urban"] ~
 
 # Histograma do slide 38 da aula
 
-x11() # Abre uma janela gr·fica
+x11() # Abre uma janela gr√°fica
 
 hist(midata2$Forearm, nclass = 15, probability = TRUE,
      xlim = c(40,75), ylim = c(0,0.12), col = "grey80",
      cex.axis = 1.2, cex.lab = 1.2, cex.main = 1.5,
-     xlab = "Comprimento do antebraÁo (mm)",
-     ylab = "FrequÍncia", main = " Histograma")
+     xlab = "Comprimento do antebra√ßo (mm)",
+     ylab = "Frequ√™ncia", main = " Histograma")
 
-# adiciona as os valores das observaÁıes
+# adiciona as os valores das observa√ß√µes
 rug(jitter(midata2$Forearm), col = "red")
 
-# Eu gosto dos gr·ficos fechados
+# Eu gosto dos gr√°ficos fechados
 box()
 
 
@@ -253,11 +253,11 @@ curve(expr = dnorm(x, mean = mean(midata2$Forearm),
 
 #########################################################
 
-# Histograma separando as gaussianas por tipo de h·bitat
+# Histograma separando as gaussianas por tipo de h√°bitat
 # Slide 42
 
 
-# Primeiro separamos os dados de antebrÁo em vetores
+# Primeiro separamos os dados de antebr√ßo em vetores
 # de acordo com o tipo de habitat
 
 # dos bichos urbanos
@@ -270,13 +270,13 @@ ant_per = midata2$Forearm[midata2$Habitat == "Periurban"]
 ant_flo = midata2$Forearm[midata2$Habitat == "Forest"]
 
 
-# o histograma base È o mesmo
+# o histograma base √© o mesmo
 X11()
 hist(midata2$Forearm, nclass = 15, probability = TRUE,
      xlim = c(40,75), ylim = c(0,0.12), col = "grey80",
      cex.axis = 1.2, cex.lab = 1.2, cex.main = 1.5,
-     xlab = "Comprimento do antebraÁo (mm)",
-     ylab = "FrequÍncia", main = " Histograma")
+     xlab = "Comprimento do antebra√ßo (mm)",
+     ylab = "Frequ√™ncia", main = " Histograma")
 rug(jitter(midata2$Forearm), col = "red")
 
 box()
@@ -330,11 +330,11 @@ curve(expr = dnorm(x, mean = mean(ant_flo),
 #######################################################
 # Jitter plot do slide 44
 
-# primeiro faÁo um plot vazio
+# primeiro fa√ßo um plot vazio
 plot(0, 0, cex = 0, ylim = c(40,75), xlim = c(0,1),
      cex.axis = 1.2, cex.lab = 1.2, cex.main = 1.5,
      xaxt = "n", xlab = " ",
-     ylab = "Comprimento do antebraÁo (mm)",
+     ylab = "Comprimento do antebra√ßo (mm)",
      main = " Jitter plot")
 box()
 
@@ -363,7 +363,7 @@ points(ant_flo~jitter(rep(0.5, length(ant_flo)),25),
 boxplot(Forearm ~ Habitat, data = midata2,
         cex.axis = 1.2, cex.lab = 1.2, cex.main = 1.5,
         xlab = " Habitat ", main = "Boxplot",
-        ylab = "Comprimento do antebraÁo (mm)",
+        ylab = "Comprimento do antebra√ßo (mm)",
         col = c("green4", "maroon", "darkblue"),
         pch = 16, lwd = 2)
 
@@ -373,7 +373,7 @@ boxplot(Forearm ~ Habitat, data = midata2,
 
 ###########################################################
 #
-#   DESAFÕO
+#   DESAF√çO
 #   Explorem graficamente a ideia de que
 #   Ha diferencias na masa corporal de acordo com o sexo
 #
@@ -382,8 +382,8 @@ boxplot(Forearm ~ Habitat, data = midata2,
 
 
 ## QUEM GOSTA DE CORES DIFERENTES, PODE TESTAR
-## A FUN«√O rgb() PARA SELECIONAR A COR DO GR¡FICO
-## S” ESCREVELA DENTRO DO ARGUMENTO col = ... DO PLOT
+## A FUN√á√ÉO rgb() PARA SELECIONAR A COR DO GR√ÅFICO
+## S√ì ESCREVELA DENTRO DO ARGUMENTO col = ... DO PLOT
 
 
 

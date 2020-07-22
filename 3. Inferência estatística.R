@@ -1,11 +1,11 @@
 #################################################
 ##                                             ##
-##  3. INFER NCIA ESTATÕSTICA I                ##
-##  Guillermo L. FlÛrez Montero                ##
+##  3. INFER√äNCIA ESTAT√çSTICA I                ##
+##  Guillermo L. Fl√≥rez Montero                ##
 ##                                             ##
 #################################################
 
-# DiretÛrio de trabalho
+# Diret√≥rio de trabalho
 
 setwd("D:/Cursos/Semana da Bio 2020/datos")
 
@@ -15,8 +15,8 @@ setwd("D:/Cursos/Semana da Bio 2020/datos")
 ##############################################################
 #
 # Vamos criar uma realidade, um universo onde 
-# conhecemos o tamanho da populaÁ„o estatÌstica (5000000)
-# e os valores reais de media (5) e desvio padr„o (3)
+# conhecemos o tamanho da popula√ß√£o estat√≠stica (5000000)
+# e os valores reais de media (5) e desvio padr√£o (3)
 
 
 universo = rnorm(5000000, mean = 5, sd = 3)
@@ -27,8 +27,8 @@ sd(universo)
 
 
 # Agora, vamos esquecer a origem de tudo (DARK) e vamos fazer o papel do cientista
-# vamos amostrar essa populaÁ„o para tentar estimar a media populacional (Par‚metro)
-# a partir da media amostral (estimador do par‚metro).
+# vamos amostrar essa popula√ß√£o para tentar estimar a media populacional (Par√¢metro)
+# a partir da media amostral (estimador do par√¢metro).
 
 
 
@@ -38,16 +38,16 @@ sd(universo)
 
 amostras = matrix(nrow = 120, ncol = 150)
 
-# TraduÁ„o da linha 39
+# Tradu√ß√£o da linha 39
 # R... faz uma matriz de 120 linhas e 150 colunas
 # e armazena-a como um objeto chamado "amostras"
 
-View(amostras)  # È uma matriz vazia que depois vamos preencher
+View(amostras)  # √© uma matriz vazia que depois vamos preencher
 
 
 # Agora vamos fazer a magia da amostragem, para isso vamos usar um loop
-# por que gente... s„o 150 amostras e se fazemos uma a uma vai dar mÌnimo
-# 150 linhas de cÛdigo.
+# por que gente... s√£o 150 amostras e se fazemos uma a uma vai dar m√≠nimo
+# 150 linhas de c√≥digo.
 
 
 for (i in 1:150)
@@ -58,12 +58,12 @@ for (i in 1:150)
 
 # Olhem isso gente, vamos tentar traduzir. O loop diz:
 
-# Amigo R. vocÍ vai fazer isso i vezes, 
-# sendo que i vai de 1 a 150 (o n˙mero de amostras)
+# Amigo R. voc√™ vai fazer isso i vezes, 
+# sendo que i vai de 1 a 150 (o n√∫mero de amostras)
 
-# Entre as chavetas est· a ordem que vai executar 150 vezes
-# a ordem È: faz uma amostra do objeto que chamas-se "universo",
-# de tamanho 120 e sem substituiÁ„o (bicho que saiu n„o se seleciona mais)
+# Entre as chavetas est√° a ordem que vai executar 150 vezes
+# a ordem √©: faz uma amostra do objeto que chamas-se "universo",
+# de tamanho 120 e sem substitui√ß√£o (bicho que saiu n√£o se seleciona mais)
 # salva na coluna i (que ele sabe que vai de 1 a 150) da matriz "amostras"
 
 
@@ -71,7 +71,7 @@ for (i in 1:150)
 
 medias_s = apply(amostras,2, mean)
 
-# podemos explorar esa distribuiÁ„o de medias
+# podemos explorar esa distribui√ß√£o de medias
 
 media_m = mean(medias_s)
 median(medias_s)
@@ -79,7 +79,9 @@ min(medias_s)
 max(medias_s)
 
 # E vamos salvar nossos percentis que representam os extremos de incerteza
+# tanto para o lado esquerdo quanto para o direito da Normal
 # de 0.025 e de 0.975
+# somando esses recortes d√° 0,05 que √© meu valor de alfa.
 
 q.025 = quantile(medias_s, probs = 0.025)
 q.975 = quantile(medias_s, probs = 0.975)
@@ -97,7 +99,7 @@ hist(medias_s, probability = TRUE,
      xlab = " ", ylab = " ", main = " ")
 box()
 
-# Adicionamos uma gaussiana
+# Adicionamos uma Normal   
 
 curve(expr = dnorm(x, mean = media_m,
                    sd = sd(medias_s)),
@@ -107,6 +109,8 @@ curve(expr = dnorm(x, mean = media_m,
 abline(v = media_m, col = "darkred", lty = 3, lwd = 3)
 
 #Adicionamos os percentis que representam os extremos de incerteza
+# aquela que eu defin√≠ como alfa = 0,05
+
 abline(v = q.975, col = "red")
 abline(v = q.025, col = "red")
 
@@ -137,15 +141,15 @@ abline(v = qt(0.025, df = 28, lower.tail = TRUE))
 
 ########################################
 #
-#   VAMOS TENTAR UM TESTE DE HIP”TESES
+#   VAMOS TENTAR UM TESTE DE HIP√ìTESES
 #
 ########################################
 
 
 #
-# A NOSSA HIP”TESE … QUE BICHOS URBANOS S√O
+# A NOSSA HIP√ìTESE √â QUE BICHOS URBANOS S√ÉO
 # MAIORES DO QUE BICHOS FLORESTAIS
-# USAMOS A MEDIDA DE ANTEBRA«O
+# USAMOS A MEDIDA DE ANTEBRA√áO
 #
 
 
@@ -157,7 +161,7 @@ d_alit = read.csv("alituratus2.csv")
 
 # d_alit: dados de Artibeus lituratus
 
-# Lembramos que H0 È de que os antebraÁos dos animais urbanos e florestais s„o iguais
+# Lembramos que H0 √© de que os antebra√ßos dos animais urbanos e florestais s√£o iguais
 
 # para facilitar o assunto, separemos os dados em dois objetos diferentes (um para cada habitat)
 
@@ -165,13 +169,17 @@ forest = d_alit$Forearm[d_alit$Habitat == "Forest"]
 urban = d_alit$Forearm[d_alit$Habitat == "Urban"]
 
 
-# Vamos fazer o teste que È muito simples
+# Vamos fazer o teste que √© muito simples
+
+# Lembrem que o valor de t √© uma diferen√ßa de medias dos antebra√ßos
+# dos bichos urbanos e florestais, aproximada a uma distribui√ß√£o te√≥rica t student
+# que asume a hip√≥tese nula como certa
 
 teste_t = t.test(urban, forest)
 
 teste_t
 
-## Graficamos a distribuiÁ„o t student para 150 graus de liberdade
+## Graficamos a distribui√ß√£o t student para 150 graus de liberdade
 
 curve(dt(x, df = 150), 
       cex.lab = 1.5, cex.axis = 1.2, lwd = 2,
@@ -189,7 +197,7 @@ abline(v = qt(0.025, df = 150,
 abline(v = qt(0.975, df = 150, 
               lower.tail = TRUE), col = "Darkred")
 
-# agora vamos colocar o valor de t (diferÍncia de medias padronizada)
+# agora vamos colocar o valor de t (difer√™ncia de medias padronizada)
 
 points(x = teste_t$statistic, y = teste_t$p.value,
        pch = 16, col = "Darkred")
@@ -199,46 +207,46 @@ points(x = teste_t$statistic, y = teste_t$p.value,
 
 
 ##############################################
-#  Intervalos de confianÁa usando t Student  #
+#  Intervalos de confian√ßa usando t Student  #
 ##############################################
 
 
-# Para finalizar, vamos olhar os testes de hipÛteses da perspectiva dos intervalos de confianÁa
+# Para finalizar, vamos olhar os testes de hip√≥teses da perspectiva dos intervalos de confian√ßa
 
 
-# Vamos aos antebraÁos de Artibeus lituratus
-# Posso usar Intervalos de ConfianÁa para ver se as mÈdias s„o parecidas
-# Se os intervalos se tocam em algum ponto ent„o as mÈdias s„o probabilÌsticamente parecidas
-# por tanto n„o confiaria muito na minha hipÛtese alternativa
+# Vamos aos antebra√ßos de Artibeus lituratus
+# Posso usar Intervalos de Confian√ßa para ver se as m√©dias s√£o parecidas
+# Se os intervalos se tocam em algum ponto ent√£o as m√©dias s√£o probabil√≠sticamente parecidas
+# por tanto n√£o confiaria muito na minha hip√≥tese alternativa
 
 
 # Vamos fazer tudo passo a passo
 
-# Calculamos as mÈdias de cada habitat e os guardar em um vetor
+# Calculamos as m√©dias de cada habitat e os guardar em um vetor
 
 medias = c(mean(forest), mean(urban))
 
-# Calculamos o desvio padr„o de cada habitat e os guardamo em um vetor
+# Calculamos o desvio padr√£o de cada habitat e os guardamo em um vetor
 
 desvios = c(sd(forest), sd(urban))
 
-# Contamos as observaÁıes de cada tipo de habitat e os colocamos em um vetor
+# Contamos as observa√ß√µes de cada tipo de habitat e os colocamos em um vetor
 
 numero = c(length(forest), length(urban))
 
-# Calculamos o erro padr„o de cada mÈdia e os colocamos em um vetor
+# Calculamos o erro padr√£o de cada m√©dia e os colocamos em um vetor
 
 errorest = desvios/sqrt(numero)
 
-# Observe que em todos estes objetos, primeiro est· o valor para "Forest" e depois para "Urban"
+# Observe que em todos estes objetos, primeiro est√° o valor para "Forest" e depois para "Urban"
 # Criamos um objeto com os nomes dos habitats, porque os usarei mais tarde
 
 Habitat = c("Forest", "Urban")
 
 
-# Calcula o intervalo de confianÁa usando o valor de t para alfa = 0,025 (lembrem-se que È bicaudal)
+# Calcula o intervalo de confian√ßa usando o valor de t para alfa = 0,025 (lembrem-se que √© bicaudal)
 
-# primeiro o valor de t crÌtico.
+# primeiro o valor de t cr√≠tico.
 
 tcrit = c(qt(0.025, numero[1]-1, lower.tail = FALSE),
           qt(0.025, numero[2]-1, lower.tail = FALSE))
@@ -251,7 +259,7 @@ icinf = medias - (tcrit * errorest)
 
 # Vamos a colocar em uma tabela para ver melhor
 
-IC_habitat = data.frame("Habitat" = Habitat, "Media AntebraÁo" = medias,
+IC_habitat = data.frame("Habitat" = Habitat, "Media Antebra√ßo" = medias,
                         "IC inferior" = icinf, "IC Superior" = icsup)
 
 IC_habitat
@@ -260,24 +268,24 @@ IC_habitat
 t.test(urban, forest)
 
 
-### Um gr·fico de mÈdias e intervalos de confianÁa ###
+### Um gr√°fico de m√©dias e intervalos de confian√ßa ###
 
-# È mais f·cil ver se os intervalos se tocam usando un gr·fico
+# √© mais f√°cil ver se os intervalos se tocam usando un gr√°fico
 
-# Criamos um gr·fico vazÌo (este È meu estilo de fazer)
+# Criamos um gr√°fico vaz√≠o (este √© meu estilo de fazer)
 bp1 = barplot(c(0,0) ~ Habitat,
               ylim = c(50, 65),
               ylab = "Forearm length (mm)",
-              xlab = "H·bitat",
+              xlab = "H√°bitat",
               cex.lab = 1.2, font.lab = 2)
 
-# adicionamos os pontos que ser„o os meios
+# adicionamos os pontos que ser√£o as medias
 points(bp1, medias, pch = 19, cex = 1.2)
 
-# adicionamos os intervalos de confianÁa
+# adicionamos os intervalos de confian√ßa como setinhas
 arrows(bp1, icsup, bp1, icinf, code = 3, angle = 90, length = 0.07)
 
-box() #coloque o gr·fico em uma caixa
+box() #coloque o gr√°fico em uma caixa
 
 
 
@@ -285,8 +293,8 @@ box() #coloque o gr·fico em uma caixa
 
 # Feito, agora podem brincar com os dados de CAVALOS
 # Mas ai tem um truque....
-# O an·lise È focado a verificar se a diferenÁa de massa
-# em media È igual a Zero ou n„o
+# O an√°lise √© focado a verificar se a diferen√ßa de massa
+# em media √© igual a Zero ou n√£o
 
 
 #

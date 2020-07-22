@@ -116,22 +116,6 @@ abline(v = q.025, col = "red")
 
 
 
-hist(d_ef, probability = TRUE,
-     ylim = c(0,0.40), col = "grey80",
-     xlim = c(-10, 6), cex = 0.1)
-lines(density(d_ef), col = "blue", lwd = 2)
-curve(expr = dt(x, df = 28, log = FALSE),
-      add = TRUE, lwd = 2)
-
-lines(y = c(0.05, 0.05),
-      x = c(-11, qt(0.975, df = 28)), col = "red", lwd = 2)
-lines(y = c(0, 0.05),
-      x = c(qt(0.975, df = 28), qt(0.975, df = 28)), col = "red", lwd = 2)
-box()
-
-abline(v = qt(0.025, df = 28, lower.tail = TRUE))
-
-
 
 
 

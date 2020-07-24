@@ -49,3 +49,17 @@ Codigo: Identificação de cada animal. Formado por duas letras e dois números.
 Masa_inicial: Masa corporal (kg) de cada animal antes de iniciar o tratamento com antibióticos.
 
 Masa_final: Masa corporal (kg) de cada animal depois dos 15 dias de tratamento com antibióticos. 
+
+
+
+3. Nome do arquivo: aves_urbanas.csv
+Separador: virgula ","
+Decimal: ponto "."
+
+Descrição da data: Contem informação de uma coleta (ficticia) de aves em 30 parques urbanos no sul do brasil ao longo de 10 meses.
+
+Variáveis:
+
+Área: Área de cada parque em hectares (ha)
+Distancia: Distância linear (Km) da mancha ao contínuo de floresta nativa mais próximo (não considera outros parques da amostra).
+Shannon: Índice de diversidade de Shannon derivado da matriz de abundância de espécies (a matriz não está inclusa nos dados).

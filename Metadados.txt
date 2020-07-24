@@ -61,5 +61,7 @@ Descrição da data: Contem informação de uma coleta (ficticia) de aves em 30 
 Variáveis:
 
 Área: Área de cada parque em hectares (ha)
+
 Distancia: Distância linear (Km) da mancha ao contínuo de floresta nativa mais próximo (não considera outros parques da amostra).
+
 Shannon: Índice de diversidade de Shannon derivado da matriz de abundância de espécies (a matriz não está inclusa nos dados).
